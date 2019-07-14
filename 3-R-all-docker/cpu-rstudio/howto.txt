@@ -1,3 +1,4 @@
 sudo docker build --build-arg CACHE_DATE=$(date +%Y-%m-%d) -t gbm_intro_cpu_rstudio .
-sudo docker run --rm -p 8787:8787 -e PASSWORD=yourpasswordhere gbm_intro_cpu_rstudio
+## export RSTUDIO_PASSWORD=...
+sudo docker run --rm -p 8787:8787 -e PASSWORD=${RSTUDIO_PASSWORD} gbm_intro_cpu_rstudio
 
