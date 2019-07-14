@@ -1,2 +1,2 @@
-docker build --build-arg CACHE_DATE=$(date +%Y-%m-%d) -t gbm_intro_cpu .
-docker run --rm gbm_intro_cpu
+sudo docker build --build-arg CACHE_DATE=$(date +%Y-%m-%d) -t gbm_intro_cpu .
+sudo docker run --rm -it gbm_intro_cpu
