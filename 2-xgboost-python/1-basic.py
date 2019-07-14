@@ -4,7 +4,6 @@ import numpy as np
 from sklearn import preprocessing 
 from scipy import sparse
 from sklearn import metrics
-import multiprocessing
 
 import xgboost as xgb
 
@@ -68,7 +67,7 @@ dxgb_test = xgb.DMatrix(X_test)
 
 ## TRAIN
 param = {'max_depth':10, 'eta':0.1, 'objective':'binary:logistic', 
-             'silent':1, 'nthread': multiprocessing.cpu_count()}
+             'silent':1}             
 %time md = xgb.train(param, dxgb_train, num_boost_round = 100)
 
 
