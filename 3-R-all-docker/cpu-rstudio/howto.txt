@@ -1,0 +1,3 @@
+sudo docker build --build-arg CACHE_DATE=$(date +%Y-%m-%d) -t gbm_intro_cpu_rstudio .
+sudo docker run --rm -p 8787:8787 gbm_intro_cpu_rstudio
+
