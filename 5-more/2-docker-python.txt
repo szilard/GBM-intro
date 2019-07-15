@@ -8,6 +8,7 @@ docker run --rm  -ti continuumio/anaconda3 /bin/bash
 conda search xgboost
 
 conda install py-xgboost
+conda install lightgbm
 
 
 ipython
