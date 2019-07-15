@@ -29,11 +29,11 @@ dxgb_train <- xgb.DMatrix(data = X_train, label = ifelse(d_train$dep_delayed_15m
 ## monitor with:      while true; do gpustat| grep Tesla; sleep 1; done
 ##                    mpstat 1
 
-n_trees <- 1000    ## use larger number of trees (even if overfitting) if you want to study CPU/GPU utilization and relative runtime
+n_trees <- 1000    ## use larger number of trees (even if overfitting) if you want to see/study CPU/GPU utilization and relative runtime
 
 ## you can also see GPU/CPU relative runtime for larger training sets (going in favor for GPUs)
 ## change    d_train <- fread("https://s3.amazonaws.com/benchm-ml--main/train-0.1m.csv")   to  ...train-1m.csv...   above
-## and   n_trees <- 100   in this case if you don't want very long running times
+## and also   n_trees <- 100   in this case if you don't want to wait for long running times
 
 
 

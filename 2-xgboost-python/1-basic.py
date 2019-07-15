@@ -8,7 +8,8 @@ from sklearn import metrics
 import xgboost as xgb
 
 
-## bug workaround -- OMP: Error #15: Initializing libomp.dylib, but found libiomp5.dylib already initialized.
+## bug workaround for crash on Mac anaconda, crash not happening in Linux anaconda 
+## OMP: Error #15: Initializing libomp.dylib, but found libiomp5.dylib already initialized.
 import os
 os.environ['KMP_DUPLICATE_LIB_OK']='True'
 
