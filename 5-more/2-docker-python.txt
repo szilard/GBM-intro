@@ -1,0 +1,17 @@
+
+docker pull continuumio/anaconda3
+
+docker run --rm  -ti continuumio/anaconda3 /bin/bash
+
+
+
+conda search xgboost
+
+conda install py-xgboost
+
+
+ipython
+
+
+
+
