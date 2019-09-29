@@ -8,7 +8,7 @@ RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 51716619E084DAB9 &&
     apt-get update && \
     apt-get install -y r-base
 
-RUN apt-get install -y git wget libcurl4-openssl-dev default-jdk-headless libssl-dev
+RUN apt-get install -y git wget libcurl4-openssl-dev default-jdk-headless libssl-dev libxml2-dev
 
 ## xgboost: CMake 3.12 or higher is required
 RUN apt-get install -y python-pip && pip install cmake --upgrade && \
@@ -30,7 +30,8 @@ RUN git clone --recursive https://github.com/dmlc/xgboost && \
     mkdir build && cd build && cmake .. -DUSE_CUDA=ON -DR_LIB=ON && \
     make install -j
 
-RUN apt-get install -y libboost-dev libboost-system-dev libboost-filesystem-dev ocl-icd-opencl-dev opencl-headers clinfo
+RUN apt-get update && \
+    apt-get install -y libboost-dev libboost-system-dev libboost-filesystem-dev ocl-icd-opencl-dev opencl-headers clinfo
 RUN mkdir -p /etc/OpenCL/vendors && \
     echo "libnvidia-opencl.so.1" > /etc/OpenCL/vendors/nvidia.icd   ## otherwise lightgm segfaults at runtime (compiles fine without it)
 RUN R -e 'devtools::install_github("Laurae2/lgbdl"); lgbdl::lgb.dl(use_gpu = TRUE)'
