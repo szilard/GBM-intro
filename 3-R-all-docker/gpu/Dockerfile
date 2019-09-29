@@ -3,8 +3,8 @@ FROM nvidia/cuda:9.1-devel-ubuntu16.04
 RUN apt-get update && \
     apt-get install -y software-properties-common python-software-properties apt-transport-https
 
-RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E084DAB9 && \
-    add-apt-repository 'deb [arch=amd64] https://cran.rstudio.com/bin/linux/ubuntu xenial/' && \
+RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 51716619E084DAB9 && \
+    add-apt-repository 'deb [arch=amd64] https://cran.rstudio.com/bin/linux/ubuntu xenial-cran35/' && \
     apt-get update && \
     apt-get install -y r-base
 
