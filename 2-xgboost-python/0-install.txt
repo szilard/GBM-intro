@@ -1,4 +1,5 @@
 
-conda install py-xgboost
+pip3 install -U xgboost lightgbm h2o
+## h2o needs java
 
 

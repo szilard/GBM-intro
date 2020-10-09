@@ -4,11 +4,10 @@ docker pull continuumio/anaconda3
 docker run --rm  -ti continuumio/anaconda3 /bin/bash
 
 
+## conda install py-xgboost lightgbm 
+## UPDATE: As of 2020-10-09 this installs old versions, so do this instead:
 
-conda search xgboost
-
-conda install py-xgboost
-conda install lightgbm
+pip3 install -U xgboost lightgbm 
 
 
 ipython

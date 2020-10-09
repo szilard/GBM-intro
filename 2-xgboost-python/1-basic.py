@@ -8,12 +8,6 @@ from sklearn import metrics
 import xgboost as xgb
 
 
-## bug workaround for crash on Mac anaconda, crash not happening in Linux anaconda 
-## OMP: Error #15: Initializing libomp.dylib, but found libiomp5.dylib already initialized.
-import os
-os.environ['KMP_DUPLICATE_LIB_OK']='True'
-
-
 ## READ DATA
 d_train = pd.read_csv("https://s3.amazonaws.com/benchm-ml--main/train-0.1m.csv")
 d_test = pd.read_csv("https://s3.amazonaws.com/benchm-ml--main/test.csv")
@@ -67,8 +61,7 @@ dxgb_test = xgb.DMatrix(X_test)
 
 
 ## TRAIN
-param = {'max_depth':10, 'eta':0.1, 'objective':'binary:logistic', 
-             'silent':1}             
+param = {'max_depth':10, 'eta':0.1, 'objective':'binary:logistic'}             
 %time md = xgb.train(param, dxgb_train, num_boost_round = 100)
 
 
