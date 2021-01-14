@@ -61,7 +61,7 @@ dlgb_test = lgb.Dataset(X_test)
 
 
 ## TRAIN
-param = {'num_leaves':512, 'learning_rate':0.1, 'verbose':0}
+param = {'objective': 'binary', 'num_leaves':512, 'learning_rate':0.1, 'verbose':0}
 %time md = lgb.train(param, dlgb_train, num_boost_round = 100)
 
 
