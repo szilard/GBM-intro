@@ -40,7 +40,8 @@ n_trees <- 1000    ## use larger number of trees (even if overfitting) if you wa
 ## CPU
 system.time({
   md <- xgb.train(data = dxgb_train, objective = "binary:logistic", 
-           nround = n_trees, max_depth = 10, eta = 0.1)
+           nround = n_trees, max_depth = 10, eta = 0.1,
+           tree_method = "hist")
 })
 phat <- predict(md, newdata = X_test)
 rocr_pred <- prediction(phat, d_test$dep_delayed_15min)

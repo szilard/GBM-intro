@@ -38,6 +38,7 @@ dxgb_earlystop <- xgb.DMatrix(data = X_earlystop, label = ifelse(d_earlystop$dep
 system.time({
   md <- xgb.train(data = dxgb_subtrain, objective = "binary:logistic", 
            max_depth = 10, eta = 0.1,
+           tree_method = "hist",
            nround = 10000, early_stopping_rounds = 10, watchlist = list(valid = dxgb_earlystop), eval_metric = "auc",  
            verbose = 0)
 })
@@ -59,6 +60,7 @@ dxgb_test  <- xgb.DMatrix(data = X_test,  label = ifelse(d_test$dep_delayed_15mi
 system.time({
   md <- xgb.train(data = dxgb_subtrain, objective = "binary:logistic", 
            max_depth = 10, eta = 0.1,
+           tree_method = "hist",
            nround = 1000, watchlist = list(valid = dxgb_test), eval_metric = "auc", 
            verbose = 0)
 })

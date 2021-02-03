@@ -40,7 +40,8 @@ X_train[0:10,0:10].todense()
 
 
 ## TRAIN
-md = xgb.XGBClassifier(max_depth=10, n_estimators=100, learning_rate=0.1, n_jobs=-1)
+md = xgb.XGBClassifier(max_depth=10, n_estimators=100, learning_rate=0.1, 
+          tree_method="hist",  n_jobs=-1)
 %time md.fit(X_train, y_train)
 
 ## %time md.fit(X_train.toarray(), y_train)   # slow if not sparse!
@@ -61,7 +62,7 @@ dxgb_test = xgb.DMatrix(X_test)
 
 
 ## TRAIN
-param = {'max_depth':10, 'eta':0.1, 'objective':'binary:logistic'}             
+param = {'max_depth':10, 'eta':0.1, 'objective':'binary:logistic', 'tree_method':'hist'}  
 %time md = xgb.train(param, dxgb_train, num_boost_round = 100)
 
 
